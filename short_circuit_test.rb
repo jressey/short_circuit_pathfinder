@@ -41,26 +41,26 @@ class TestShortCircuit < Test::Unit::TestCase
 	end
 
 	def test_short_circuit_pathfinder
-		assert_equal(@path_segments, ShortCircuit.find_shortest_path(@input_path_segments))
+		assert_equal(@path_segments, ShortCircuitPathfinder::ShortCircuit.find_shortest_path(@input_path_segments))
 	end
 
-	def test_get_start_point
-		assert_equal('A', ShortCircuit.get_start_point(@input_path_segments))
-	end
+	# def test_get_start_point
+	# 	assert_equal('A', ShortCircuitPathfinder::ShortCircuit.get_start_point(@input_path_segments))
+	# end
 
-	def test_get_end_point
-		assert_equal('G', ShortCircuit.get_end_point(@input_path_segments))
-	end
+	# def test_get_end_point
+	# 	assert_equal('G', ShortCircuitPathfinder::ShortCircuit.get_end_point(@input_path_segments))
+	# end
 
 	def test_find_all_paths_for_point
-		assert_equal(@all_paths_for_a, ShortCircuit.get_all_paths_for_point('A', @input_path_segments))
+		assert_equal(@all_paths_for_a, ShortCircuitPathfinder::ShortCircuit.get_all_paths_for_point('A', @input_path_segments))
 	end
 
 	def test_get_sum_of_all_paths_for_point
-		assert_equal(50 + 250, ShortCircuit.get_sum_of_distances(@path_for_sum_of_distances))
+		assert_equal(50 + 250, ShortCircuitPathfinder::ShortCircuit.get_sum_of_distances(@path_for_sum_of_distances))
 	end
 
 	def test_get_all_possible_paths
-		assert_equal(@all_possible_paths, ShortCircuit.get_all_possible_paths(@input_path_segments))
+		assert_equal(@all_possible_paths, ShortCircuitPathfinder::ShortCircuit.get_all_possible_paths(@input_path_segments))
 	end
 end
