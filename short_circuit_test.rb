@@ -25,7 +25,17 @@ class TestShortCircuit < Test::Unit::TestCase
 								  [ 'C', 'E', 350],
 								  [ 'D', 'F', 400],
 								  [ 'E', 'G', 200],
-								]				
+								]	
+
+		@all_paths_for_a = 		[
+								  [ 'A', 'B', 50],
+								  [ 'A', 'D', 150]	
+								]
+
+		@path_for_sum_of_distances = [
+										[ 'A', 'B', 50 ],
+								  		[ 'B', 'C', 250],
+									 ]									
 	end
 
 	def test_short_circuit_pathfinder
@@ -38,5 +48,13 @@ class TestShortCircuit < Test::Unit::TestCase
 
 	def test_get_end_point
 		assert_equal('G', ShortCircuit.get_end_point(@input_path_segments))
+	end
+
+	def test_find_all_paths_for_point
+		assert_equal(@all_paths_for_a, ShortCircuit.get_all_paths_for_point('A', @input_path_segments))
+	end
+
+	def test_get_sum_of_all_paths_for_point
+		assert_equal(50 + 250, ShortCircuit.get_sum_of_distances(@path_for_sum_of_distances))
 	end
 end
